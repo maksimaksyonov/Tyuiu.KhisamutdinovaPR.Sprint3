@@ -1,6 +1,6 @@
 ﻿// Author: Максим Аксёнов
 // Project: Tyuiu.AxyonovMA.Sprint3.Task5.V14.Test
-// Description: Тест метода GetSumSumSeries для варианта 14
+// Description: Тест на точный ответ варианта 14
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tyuiu.AxyonovMA.Sprint3.Task5.V14.Lib;
@@ -12,18 +12,16 @@ namespace Tyuiu.AxyonovMA.Sprint3.Task5.V14.Test
     public class DataServiceTest
     {
         [TestMethod]
-        public void TestGetSumSumSeries()
+        public void Should_Return_Expected_For_V14()
         {
-            DataService ds = new DataService();
+            var ds = new DataService();
 
-            int x = 5;
-            int startValue1 = 1, startValue2 = 1;
-            int stopValue1 = 3, stopValue2 = 14;
+            double y = ds.GetSumSumSeries(
+                x: 5,
+                startValue1: 1, startValue2: 1,
+                stopValue1: 3, stopValue2: 14);
 
-            double result = ds.GetSumSumSeries(x, startValue1, startValue2, stopValue1, stopValue2);
-
-            // Проверим округлённое значение
-            Assert.AreEqual(-20.765, Math.Round(result, 3));
+            Assert.AreEqual(-31.275, Math.Round(y, 3));
         }
     }
 }
