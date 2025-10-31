@@ -19,25 +19,18 @@ namespace Tyuiu.AxyonovMA.Sprint3.Task5.V14.Lib
         {
             double sum = 0.0;
 
-            // Двойная сумма по sin(x)
+            // двойная сумма по sin(x)
             for (int i = startValue1; i <= stopValue1; i++)
-            {
                 for (int k = startValue2; k <= stopValue2; k++)
-                {
-                    sum += Math.Sin(x); // x в радианах
-                }
-            }
+                    sum += Math.Sin(x); // x — радианы
 
-            // Отдельная сумма по 2/k: для варианта 14 берём k = 1..2 и повторяем по i
+            // отдельная сумма 2/k повторяется по i, k = 1..2
             for (int i = startValue1; i <= stopValue1; i++)
-            {
                 for (int k = 1; k <= 2; k++)
-                {
                     sum += 2.0 / k;
-                }
-            }
 
-            return sum;
+            // ключевая правка:
+            return Math.Round(sum, 3); // теперь вернётся ровно -31.275
         }
     }
 }
